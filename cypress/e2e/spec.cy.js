@@ -66,7 +66,7 @@ describe('Form Input Reflection', () => {
   });
 
 //POST REQUEST
-describe('Add New URL', () => {
+describe('Post New URL', () => {
   beforeEach(() => {
     cy.intercept("GET", "http://localhost:3001/api/v1/urls", {
       fixture: 'data.json'

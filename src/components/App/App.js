@@ -9,32 +9,24 @@ function App () {
   const [error, setError] = useState('')
   
 
-
 useEffect(() => {
   getUrls()
     .then(data => { 
-    setUrls(data.urls)}) // Update the state 
-    .catch(error => setError(error.message));  //catch the error
+    setUrls(data.urls)}) 
+    .catch(error => setError(error.message));  
 
 }, []);
 
 
-
-//FUNCTION TO POST AN ORDER
 function addUrl(newUrl) {
   postUrl(newUrl)
     .then(url => {
-      // Assuming the API returns the newly added order
       setUrls(prevUrls => [...prevUrls, url]);
     })
     .catch(error => {
       setError(error.message);
-      console.log("Error in adding order:", error);
     });
 }
-
-
-
 
   return (
     <main className="App">
