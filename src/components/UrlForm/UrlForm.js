@@ -37,7 +37,7 @@ function UrlForm({addUrl}) {
         onChange={(e) => setUrlToShorten(e.target.value)}
       />
 
-      <button onClick={e => handleSubmit(e)}>
+      <button className="form-button" onClick={e => handleSubmit(e)}>
         Shorten Please!
       </button>
     </form>

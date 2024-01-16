@@ -13,7 +13,7 @@ function UrlContainer({urls}) {
   });
 
   return (
-    <section>
+    <section className="url-cards">
       { urlEls.length ? urlEls : <p>No urls yet! Find some to shorten!</p> }
     </section>
   )
