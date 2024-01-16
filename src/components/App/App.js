@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postUrl } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -20,12 +20,27 @@ useEffect(() => {
 
 
 
+//FUNCTION TO POST AN ORDER
+function addUrl(newUrl) {
+  postUrl(newUrl)
+    .then(url => {
+      // Assuming the API returns the newly added order
+      setUrls(prevUrls => [...prevUrls, url]);
+    })
+    .catch(error => {
+      setError(error.message);
+      console.log("Error in adding order:", error);
+    });
+}
+
+
+
 
   return (
     <main className="App">
       <header>
         <h1>URL Shortener</h1>
-        {/* <UrlForm addURL={addURL} /> */}
+        <UrlForm addUrl={addUrl} />
       </header>
 
       <UrlContainer urls={urls}/>
